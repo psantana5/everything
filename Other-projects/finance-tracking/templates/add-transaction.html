@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Nunito:wght@600&family=Roboto&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Finance Dashboard</h1>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <div class="menu hidden">
+        <a class="menu-btn" href="#">Add Transaction</a>
+        <a class="menu-btn" href="{{ url_for('graphical_reports') }}">View Graphical Reports</a>
+        <a class="menu-btn" href="#">Import/Export Data</a>
+        <a class="menu-btn" href="#">Convert Currency</a>
+        <a class="menu-btn" href="#">Search Transactions</a>
+    </div>
+
+    <!-- Add Transaction Form -->
+    <div id="content">
+        <form action="/add_transaction" method="post">
+            <input type="text" name="description" placeholder="Description" required>
+            <input type="number" name="amount" placeholder="Amount" required>
+            <input type="date" name="date" required>
+            <select name="category">
+                <option value="Food">Food</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Rent">Rent</option>
+            </select>
+            <button type="submit">Add Transaction</button>
+        </form>
+    </div>
+</body>
+
+</html>

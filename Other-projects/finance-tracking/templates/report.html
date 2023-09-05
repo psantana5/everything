@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Nunito:wght@600&family=Roboto&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/report.css') }}">
+    <title>Graphical Reports</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Spending by Category</h2>
+        <!-- Add this button inside the .container, preferably at the bottom -->
+        <a href="{{ url_for('dashboard') }}" class="back-button">Go Back to Dashboard</a>
+
+        <img src="{{ url_for('static', filename='images/report_by_category.png') }}" alt="Report by Category">
+
+        <h2>Monthly Expenses</h2>
+        <img src="{{ url_for('static', filename='images/monthly_expenses.png') }}" alt="Monthly Expenses">
+
+        <h2>Trend of Expenses Over Time</h2>
+        <img src="{{ url_for('static', filename='images/expenses_trend.png') }}" alt="Trend of Expenses">
+    </div>
+</body>
+
+</html>

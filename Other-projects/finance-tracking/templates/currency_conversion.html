@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Currency Conversion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #1a1a2e;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            background-color: #2e2e3a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+
+        h2,
+        h3 {
+            color: #58a4b0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form,
+        .current-values,
+        .conversion-rates {
+            margin-bottom: 20px;
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3a3a4a;
+            color: #e0e0e0;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #58a4b0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #417a8b;
+        }
+        .dashboard-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #58a4b0;
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .dashboard-btn:hover {
+            background-color: #417a8b;
+            transform: scale(1.05);
+        }
+
+        .result {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #3a3a4a;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2e2e3a;
+            color: #58a4b0;
+        }
+
+        td {
+            background-color: #3a3a4a;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            h2,
+            h3 {
+                font-size: 1.5em;
+            }
+
+            input,
+            select,
+            button {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="/dashboard" class="dashboard-btn">Go Back to Dashboard</a>
+        <h2>Currency Conversion</h2>
+        <form action="/convert_currency" method="post">
+            <input type="number" name="amount" placeholder="Amount" required>
+            <select name="from_currency" required>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <!-- Add other currencies as needed -->
+            </select>
+            <select name="to_currency" required>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <!-- Add other currencies as needed -->
+            </select>
+            <button type="submit">Convert</button>
+        </form>
+        {% if converted_amount %}
+        <div class="result">
+            <p>Converted Amount: {{ converted_amount }}</p>
+        </div>
+        {% endif %}
+        <div class="current-values">
+            <h3>Current Values</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Currency</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>USD</td>
+                        <td><span id="usdValue">Fetching...</span></td>
+                    </tr>
+                    <tr>
+                        <td>EUR</td>
+                        <td><span id="eurValue">Fetching...</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="conversion-rates">
+            <h3>Conversion Rates</h3>
+            <label for="currencyDropdown">Select Currency:</label>
+            <select id="currencyDropdown">
+                <!-- Options will be populated using JavaScript -->
+            </select>
+            <div id="ratesContainer" style="display: none;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Currency</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be populated here using JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fetch the data from the API
+            axios.get('https://open.er-api.com/v6/latest/USD')
+                .then(response => {
+                    let data = response.data;
+
+                    // Update the USD and EUR values
+                    document.getElementById('usdValue').textContent = data.rates.USD.toFixed(2);
+                    document.getElementById('eurValue').textContent = data.rates.EUR.toFixed(2);
+
+                    // Populate the dropdown with available currencies
+                    let dropdown = document.getElementById('currencyDropdown');
+                    for (let currency in data.rates) {
+                        let option = document.createElement('option');
+                        option.value = currency;
+                        option.textContent = currency;
+                        dropdown.appendChild(option);
+                    }
+
+                    // Update the table based on the selected currency
+                    dropdown.addEventListener('change', function () {
+                        let selectedCurrency = this.value;
+                        let tableBody = document.getElementById('ratesTable').querySelector('tbody');
+                        tableBody.innerHTML = ''; // Clear existing rows
+                        let row = tableBody.insertRow();
+                        let cell1 = row.insertCell(0);
+                        let cell2 = row.insertCell(1);
+                        cell1.textContent = selectedCurrency;
+                        cell2.textContent = data.rates[selectedCurrency].toFixed(2);
+                        document.getElementById('ratesContainer').style.display = 'block';
+                    });
+
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
+
+    </script>
+
+</body>
+
+</html>

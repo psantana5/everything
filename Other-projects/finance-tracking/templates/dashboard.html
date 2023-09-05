@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Nunito:wght@600&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <h1>Finance Dashboard</h1>
+
+    <!-- Add Transaction Form -->
+    <form action="/add_transaction" method="post">
+        <input type="text" name="description" placeholder="Description" required>
+        <input type="number" name="amount" placeholder="Amount" required>
+        <input type="date" name="date" required>
+        <select name="category">
+            <option value="Food">Food</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Rent">Rent</option>
+        </select>
+        <button type="submit">Add Transaction</button>
+    </form>
+
+    <!-- View Graphical Reports -->
+    <a href="{{ url_for('graphical_reports') }}">View Graphical Reports</a>
+
+    <!-- Export Data -->
+    <form action="{{ url_for('export_data') }}" method="post">
+        <h2>Export transactions to Excel</h2>
+    
+        <!-- Loop through transactions and create checkboxes for each one -->
+        {% for transaction in transactions %}
+        <div class="transaction">
+            <label>
+                <input type="checkbox" name="transaction[]" value="{{ transaction }}" />
+                {{ transaction.description }} - {{ transaction.date }}
+            </label>
+        </div>
+        {% endfor %}
+    
+        <button type="submit">Export all transactions</button>
+    </form>
+    <!-- Import Data -->
+    <form action="/import_data" method="post" enctype="multipart/form-data">
+        <h2>Import data from Excel File</h2>
+        <input type="file" name="file">
+        <button type="submit">Import Data from Excel</button>
+    </form>
+
+    <!-- Currency Conversion -->
+    <form action="/convert_currency" method="post">
+        <input type="number" name="amount" placeholder="Amount" required>
+        <select name="from_currency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+        </select>
+        <select name="to_currency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+        </select>
+        <button type="submit">Convert Currency</button>
+    </form>
+
+    <!-- Search Transactions -->
+    <form action="/search_transactions" method="post">
+        <input type="text" name="query" placeholder="Search Transactions">
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Transactions Table -->
+<table>
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction[1] }}</td>
+            <td>{{ transaction[2] }}</td>
+            <td>{{ transaction[3] }}</td>
+            <td>{{ transaction[4] }}</td>
+            <td>
+                <form action="{{ url_for('delete_transaction', id=transaction[0]) }}" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Pau's storytelling app </title>
+    <link rel="shortcut icon" type="image/x-icon" href="/templates/favicon.ico">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Storytelling App</h1>
+        <div class="form">
+            <label for="prompt">Story Prompt:</label>
+            <input type="text" id="prompt" />
+            <label for="genre">Genre:</label>
+            <input type="text" id="genre" />
+            <label for="mood">Mood:</label>
+            <input type="text" id="mood" />
+            <label for="length">Length:</label>
+            <select id="length">
+                <option value="short">Short</option>
+                <option value="medium">Medium</option>
+                <option value="long">Long</option>
+            </select>
+            <button id="generate">Generate Story</button>
+        </div>
+        <div class="story">
+            <h2>Generated Story</h2>
+            <textarea id="story" rows="10" cols="50" readonly></textarea>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('generate').addEventListener('click', function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/generate', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                    document.getElementById('story').textContent = this.responseText;
+                }
+            }
+            var prompt = document.getElementById('prompt').value;
+            var genre = document.getElementById('genre').value;
+            var mood = document.getElementById('mood').value;
+            var length = document.getElementById('length').value;
+            xhr.send('prompt=' + encodeURIComponent(prompt) +
+                '&genre=' + encodeURIComponent(genre) +
+                '&mood=' + encodeURIComponent(mood) +
+                '&length=' + encodeURIComponent(length));
+        });
+    </script>
+</body>
+
+</html>

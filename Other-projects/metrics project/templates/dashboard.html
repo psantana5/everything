@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>System Metrics</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <h1>System Metrics</h1>
+
+    <div id="hardware-metrics">
+        <h2>Hardware Metrics</h2>
+        <div class="metric">
+            <div class="metric-title">CPU Percent:</div>
+            <div class="metric-value">{{ cpu_percent }}%</div>
+        </div>
+        <div class="metric">
+            <div class="metric-title">Memory Usage:</div>
+            <div class="metric-value">{{ memory_usage }}%</div>
+        </div>
+    </div>
+
+    <div id="network-metrics">
+        <h2>Network Metrics</h2>
+        <div class="metric">
+            <div class="metric-title">Network Bytes Sent:</div>
+            <div class="metric-value">{{ network_bytes_sent }} MB/s</div>
+        </div>
+        <div class="metric">
+            <div class="metric-title">Network Bytes Received:</div>
+            <div class="metric-value">{{ network_bytes_received }} MB/s</div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+
+</html>
