@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraping Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body class="dark-theme">
+    <div class="container">
+        <h1>Results for {{ username }}</h1>
+        {% for platform, details in info.items() %}
+        <h2>{{ platform }}</h2>
+        <p>Username: {{ details['username'] }}</p>
+        <p>Profile Picture: {{ details['profile_picture'] }}</p>
+        <p>Personal Info: {{ details['personal_info'] }}</p>
+        <hr>
+        {% endfor %} <!-- Ensure this endfor tag is present -->
+        <a href="/">Go back</a>
+    </div>
+</body>
+
+</html>

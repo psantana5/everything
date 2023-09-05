@@ -1,0 +1,19 @@
+Introduction: Briefly introduce the project's purpose and goals.
+
+Features: List the key features and functionalities your project offers.
+
+Architecture/Design: Explain the overall design of your project, including any data structures or algorithms used.
+
+Implementation: Describe how the project is implemented and provide code snippets where necessary.
+
+Usage: Explain how to use the project, including any command-line arguments or user interfaces.
+
+Security Considerations: For cybersecurity projects, detail the security measures taken and potential vulnerabilities addressed.
+
+Challenges and Learnings: Share the challenges you faced during development and the lessons learned.
+
+Future Improvements: Mention any potential future enhancements or features that could be added.
+
+References: Include references to any external libraries, tools, or tutorials you used. 
+
+Format: First page must be a title that includes my name (Pau Santana), the name of the project and the date of writing.

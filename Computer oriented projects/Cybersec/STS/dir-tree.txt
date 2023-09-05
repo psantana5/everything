@@ -1,0 +1,73 @@
+secure_token_service/
+|-- sts_server/
+|   |-- server.py
+|   |-- encryption.py
+|   |-- authentication.py
+|   |-- token_generation.py
+|   |-- database.py
+|   |-- utils.py
+|   |-- README.md
+|
+|-- sts_client/
+|   |-- client.py
+|   |-- encryption.py
+|   |-- authentication.py
+|   |-- utils.py
+|   |-- README.md
+|
+|-- tests/
+|   |-- test_server.py
+|   |-- test_client.py
+|   |-- test_encryption.py
+|   |-- test_authentication.py
+|   |-- README.md
+|
+|-- documentation/
+|   |-- setup_guide.md
+|   |-- user_guide.md
+|   |-- developer_guide.md
+|   |-- API_reference.md
+|   |-- README.md
+|
+|-- requirements.txt
+|-- LICENSE
+|-- README.md
+Explanation:
+
+secure_token_service/: The main project directory.
+
+sts_server/: Directory containing the STS server code and related modules.
+
+server.py: The main server application code responsible for handling client connections and token requests.
+encryption.py: Module for encrypting and decrypting data transmitted between the server and clients.
+authentication.py: Module for client authentication and access control.
+token_generation.py: Module for generating secure tokens and handling token requests.
+database.py: Module for storing user credentials and token information.
+utils.py: Utility functions for the server.
+README.md: Documentation specific to the server module.
+sts_client/: Directory containing the STS client code and related modules.
+
+client.py: The main client application code for connecting to the STS server and requesting tokens.
+encryption.py: Module for encrypting and decrypting data transmitted between the client and server.
+authentication.py: Module for client authentication with the STS server.
+utils.py: Utility functions for the client.
+README.md: Documentation specific to the client module.
+tests/: Directory containing test cases for the project.
+
+test_server.py: Test cases for the STS server.
+test_client.py: Test cases for the STS client.
+test_encryption.py: Test cases for encryption and decryption functions.
+test_authentication.py: Test cases for the authentication modules.
+README.md: Documentation for the test suite.
+documentation/: Directory containing project documentation.
+
+setup_guide.md: Guide on how to set up the Secure Token Service (STS) server and clients.
+user_guide.md: Guide on how to use the Secure Token Service (STS) application as an end-user.
+developer_guide.md: Guide for developers contributing to the project.
+API_reference.md: Documentation for the API and module interfaces.
+README.md: Overview of the project's documentation.
+requirements.txt: File containing the project's dependencies and their versions.
+
+LICENSE: The project's license file.
+
+README.md: The main project README file containing a brief overview and setup instructions.

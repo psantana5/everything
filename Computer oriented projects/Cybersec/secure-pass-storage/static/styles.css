@@ -1,0 +1,146 @@
+:root {
+    --soft-mint-green: #D1E8E2;
+    --deep-teal: #19747E;
+    --light-sky-blue: #A9D6E5;
+    --light-gray: #E2E2E2;
+}
+
+body {
+    background-color: var(--soft-mint-green);
+    font-family: Arial, sans-serif;
+    color: var(--deep-teal);
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.container button {
+    display: block;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: var(--deep-teal);
+    color: var(--light-gray);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.container button:hover {
+    background-color: var(--light-sky-blue);
+}
+
+.login-container,
+.register-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--light-gray);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.login-container:hover,
+.register-container:hover {
+    transform: scale(1.05);
+}
+
+.login-container h1,
+.register-container h1 {
+    color: var(--deep-teal);
+    text-align: center;
+    animation: color-change 2s infinite;
+}
+
+@keyframes color-change {
+    0% { color: var(--deep-teal); }
+    50% { color: var(--light-sky-blue); }
+    100% { color: var(--deep-teal); }
+}
+
+.login-container form,
+.register-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"],
+.register-container input[type="text"],
+.register-container input[type="email"],
+.register-container input[type="password"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--light-gray);
+    transition: background-color 0.3s ease;
+}
+
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus,
+.register-container input[type="text"]:focus,
+.register-container input[type="email"]:focus,
+.register-container input[type="password"]:focus {
+    background-color: var(--light-sky-blue);
+}
+
+.login-container input[type="submit"],
+.register-container input[type="submit"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--deep-teal);
+    color: var(--light-gray);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container input[type="submit"]:hover,
+.register-container input[type="submit"]:hover {
+    background-color: var(--light-sky-blue);
+}
+
+.login-container a,
+.register-container a {
+    text-align: center;
+    color: var(--deep-teal);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-container a:hover,
+.register-container a:hover {
+    color: var(--light-sky-blue);
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.container a {
+    display: block;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: var(--deep-teal);
+    color: var(--light-gray);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.container a:hover {
+    background-color: var(--light-sky-blue);
+}
