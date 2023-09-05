@@ -1,0 +1,29 @@
+File Operations
+File Organizer: Automatically move files from Downloads (or another folder) into folders based on their type.
+Duplicate File Finder: Search and report duplicate files in a given directory.
+Web Scraping
+Weather Scraper: Collect weather data for a location and receive alerts.
+Job Board Scraper: Scrape job postings for specific job titles and locations.
+Stock Price Tracker: Scrape stock prices and send SMS/email alerts for significant changes.
+Data Operations
+CSV File Cleaner: Remove duplicates, clean data, and transform CSV files.
+Excel Automation: Use libraries like openpyxl or pandas to read Excel files, make updates, and generate summary sheets.
+Networking
+Network Monitor: Check the status of various servers and send alerts if they are down.
+WiFi Signal Strength: Collect and analyze WiFi signal strength over time.
+APIs and Bots
+Discord Bot: Create a Discord bot for automating tasks or enhancing server features.
+Twitter Bot: Auto-like, retweet, or post based on certain conditions.
+Instagram Unfollower: List people who don't follow you back.
+System Automation
+Automated Backup: Script to backup important folders/files to an external drive or cloud storage.
+Batch Rename Tool: Rename multiple files in a folder based on specific criteria.
+Email Automation
+Email Sorter: Sort and move emails into different folders based on content, sender, or other conditions.
+Automated Survey Sender: Send out surveys and collect responses.
+Web Automation
+Auto Login and Form Submission: Use Selenium to automatically login and submit forms on websites.
+Automated Web Testing: Create a suite of tests to automatically check for issues in a website or web application.
+Text and Data Mining
+Sentiment Analysis: Collect data from social media on a specific topic and perform sentiment analysis.
+Web Content summarizer: Create a script that takes a URL and automatically summarizes the article/content.
