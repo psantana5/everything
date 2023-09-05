@@ -1,0 +1,127 @@
+Syntax and Structure C++
+
+Extension of C++ files: .cpp
+Programs usually consist of functions where the main() function is the entry point
+Data Types
+
+int: integers
+float and double: decimal numbers
+char: used for single characters
+bool: boolean values (true, false)
+
+
+
+
+
+
+
+Variables
+
+int age;
+float pi = 3.14;
+char grade = 'A';
+Input and Output
+CIN: reads from the user
+COUT: displays output
+
+Example:
+
+cpp
+
+#include <iostream>
+using namespace std;
+
+int main() {
+  int num;
+  cout << "Enter a number: ";
+  cin >> num;
+  cout << "You entered: " << num << endl;
+  return 0;
+}
+
+
+
+
+
+Control Flow
+
+Control flow statements control the execution of code based on certain conditions or loops.
+Examples of control flow statements include if, else, while, for, and switch.
+if and else statements are used to execute code conditionally based on a given condition.
+while and for loops are used for repeated execution of a block of code.
+switch statements provide a way to execute different blocks of code based on the value of a variable or an expression.
+Functions
+
+Functions in C++ allow you to group a set of statements together for reuse.
+A function is defined by specifying a return type, name, parameters (optional), and a block of code.
+The return type indicates the type of value the function returns, or void if it doesn't return a value.
+Parameters are variables used to pass values into the function.
+cpp
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int result = add(5, 3);
+    cout << "Result: " << result << endl;
+    return 0;
+}
+
+
+
+
+
+Arrays
+
+Arrays allow you to store multiple elements of the same data type in a contiguous block of memory.
+The elements in an array are accessed using indices starting from 0.
+cpp
+
+int numbers[5] = {1, 2, 3, 4, 5};
+
+
+
+
+
+
+Pointers
+
+Pointers hold the memory address of a variable.
+They are denoted by the * symbol.
+Pointers are useful for dynamic memory allocation and working with complex data structures.
+Classes and Objects
+
+C++ supports object-oriented programming (OOP).
+A class is a blueprint for creating objects. It defines member variables (attributes) and member functions (methods) to operate on those variables.
+Objects (instances) are created from classes.
+Member variables and member functions are accessed using the . operator.
+cpp
+
+class Circle {
+private:
+    double radius;
+
+public:
+    void setRadius(double r) {
+        radius = r;
+    }
+
+    double getArea() {
+        return 3.14 * radius * radius;
+    }
+};
+
+int main() {
+    Circle c;
+    c.setRadius(5.0);
+    double area = c.getArea();
+    cout << "Area: " << area << endl;
+    return 0;
+}
+
+
+Standard Library
+
+C++ provides a rich standard library with numerous pre-built functions and data structures for common tasks.
+The library includes headers like <iostream> for input/output, <string> for string manipulation, <vector> for dynamic arrays, <algorithm> for sorting and searching, and more.

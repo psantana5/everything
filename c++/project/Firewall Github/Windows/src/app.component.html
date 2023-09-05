@@ -1,0 +1,26 @@
+<div>
+    <h1>Firewall Menu</h1>
+    <hr />
+    <ul>
+        <li><button (click)="addFirewallRule()">Add Firewall Rule</button></li>
+        <li><button (click)="removeFirewallRule()">Remove Firewall Rule</button></li>
+        <li><button (click)="clearFirewallRules()">Clear All Firewall Rules</button></li>
+        <li><button (click)="printFirewallRules()">Print Firewall Rules</button></li>
+        <li><button (click)="countFirewallRules()">Count Firewall Rules</button></li>
+        <li><button (click)="searchFirewallRule()">Search Firewall Rule</button></li>
+        <li>
+            <button (click)="toggleTrafficMenu()">Block/Allow Traffic</button>
+            <ul *ngIf="showTrafficMenu">
+                <li><button (click)="blockAllTraffic()">Block All Traffic</button></li>
+                <li><button (click)="allowAllTraffic()">Allow All Traffic</button></li>
+                <li><button (click)="blockTrafficByRange()">Block Traffic by IP Range</button></li>
+                <li><button (click)="allowTrafficByRange()">Allow Traffic by IP Range</button></li>
+                <li><button (click)="blockTrafficByProtocol()">Block Traffic by Protocol</button></li>
+                <li><button (click)="allowTrafficByProtocol()">Allow Traffic by Protocol</button></li>
+                <li><button (click)="blockTrafficByPort()">Block Traffic by Port</button></li>
+                <li><button (click)="allowTrafficByPort()">Allow Traffic by Port</button></li>
+            </ul>
+        </li>
+        <li><button (click)="exitApp()">Exit</button></li>
+    </ul>
+</div>

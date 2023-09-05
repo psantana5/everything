@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 10px;
+        }
+
+        #result {
+            font-size: 24px;
+            text-align: right;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+
+        #buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .button {
+            font-size: 18px;
+            padding: 10px;
+            text-align: center;
+            background-color: #e0e0e0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="result">0</div>
+    <div id="buttons">
+        <div class="button" onclick="appendToResult('7')">7</div>
+        <div class="button" onclick="appendToResult('8')">8</div>
+        <div class="button" onclick="appendToResult('9')">9</div>
+        <div class="button" onclick="appendToResult('/')">/</div>
+        <div class="button" onclick="appendToResult('4')">4</div>
+        <div class="button" onclick="appendToResult('5')">5</div>
+        <div class="button" onclick="appendToResult('6')">6</div>
+        <div class="button" onclick="appendToResult('*')">*</div>
+        <div class="button" onclick="appendToResult('1')">1</div>
+        <div class="button" onclick="appendToResult('2')">2</div>
+        <div class="button" onclick="appendToResult('3')">3</div>
+        <div class="button" onclick="appendToResult('-')">-</div>
+        <div class="button" onclick="appendToResult('0')">0</div>
+        <div class="button" onclick="appendToResult('.')">.</div>
+        <div class="button" onclick="evaluateExpression()">=</div>
+        <div class="button" onclick="appendToResult('+')">+</div>
+    </div>
+
+    <script>
+        function appendToResult(value) {
+            const result = document.getElementById('result');
+            result.innerText += value;
+        }
+
+        function evaluateExpression() {
+            const result = document.getElementById('result');
+            const expression = result.innerText;
+
+            // Send the expression to the C++ program
+            Qt.evaluateExpression(expression);
+        }
+    </script>
+</body>
+</html>

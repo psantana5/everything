@@ -1,0 +1,20 @@
+/* rule-management.component.css */
+.rule-container {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+}
+
+/* traffic-monitoring.component.css */
+.traffic-container {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+}
+
+/* logging.component.css */
+.logging-container {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+}

@@ -1,0 +1,34 @@
+TO IMPLEMENT:
+
+ROBUSTNESS: Handle large connections and not crashing/slowing down.
+Also, detect and prevent DDoS and DoS attacks.
+
+Customizability: Create custom rules, block or allow certain IPs or ranges and other tailored measures.
+
+
+Logging and reporting: Log all traffic and provide detailed reports on network activity.
+
+
+Threat prevention: Ability to detect malware, viruses and other types of attacks. Use signature-based or behavior-based detection.
+
+Unified Security Management: Implement IDS, IDPS, SIEM and other tools.
+
+Application and identity-based inspection: Ability to operate at Application and Identity level as well as Network.
+
+Hybrid cloud support?
+
+Parental control feature?
+
+DEEP Packet Inspection: analyze the content of network packets beyond header information.
+
+User Authentication and Access Control: Implement user authentication mechanisms to restrict access to the firewall's configuration and management interfaces.
+
+VPN Support!!!
+
+
+High Availability and Load Balancing!
+
+WEB INTERFACE?
+
+Sandboxing: Consider incorporating sandboxing capabilities to isolate and analyze potentially malicious files or applications within a controlled environment, thus minimizing the risk of infections spreading across the network.
+

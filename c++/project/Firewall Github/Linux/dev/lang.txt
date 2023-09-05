@@ -1,0 +1,10 @@
+
+LANGUAGES I MIGHT ADD:
+
+C: Good efficiency and low-level control.
+
+Python: Used for automation, scripting if necessary in the script and developing additional security modules
+
+Bash: To automate firewall rule updates, log analysis, system integration, log parsing and interacting with CLI.
+
+ C++ provides performance and control, Python enhances productivity and flexibility, and Bash scripting facilitates automation and system-level tasks.33 
