@@ -6,7 +6,7 @@ def main():
     except IndexError:
         if eleccion < 0:
             print("Introduce un número mayor a 0")
-        else:
+        elif eleccion > len(favoritos):
             print("Introduce una posición que esté dentro de la lista")
         main()
 
