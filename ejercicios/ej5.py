@@ -8,7 +8,6 @@ alergenos_sand = {
     "McVeggie": ["Gluten", "Leche y derivadas", "Mostaza", "Sulfitos"]
 }
 
-# Ask the user for input
 user_choice = input(
     "¿De qué sandwich quieres comprobar los alérgenos? ")
 
