@@ -1,4 +1,3 @@
-# Crear el diccionario de conversiones
 conversiones = {
     'longitudes': {
         'kilómetros': {'millas': 0.621371, 'metros': 1000, 'yardas': 1094},
