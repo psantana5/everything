@@ -1,10 +1,19 @@
-def main():
-    al_sand = ["Cereales que contienen gluten", "Crústaceos", "Huevos", "Pescado", "Soja", "Leche y derivados",
-               "Frutos de cáscara", "Apio", "Mostaza", "Granos de sésamo", "Anhidrido sulfuroso y sulfitos", "Moluscos", "Altramuces"]
-    categoria = str(input("¿Qué categoría quieres ver?: "))
+alergenos_sand = {
+    "Hamburguesa": ["Gluten", "Leche y derivadas", "Mostaza", "Granos de sésamo"],
+    "McPollo": ["Gluten", "Leche y derivadas", "Huevo", "Mostaza"],
+    "Cuarto de libra con queso": ["Gluten", "Leche y derivadas", "Mostaza", "Sulfitos"],
+    "McRib": ["Gluten", "Mostaza", "Apio", "Sulfitos"],
+    "Big Mac": ["Gluten", "Leche y derivadas", "Mostaza", "Sulfitos"],
+    "McFish": ["Gluten", "Pescado", "Leche y derivadas", "Mostaza", "Sulfitos"],
+    "McVeggie": ["Gluten", "Leche y derivadas", "Mostaza", "Sulfitos"]
+}
 
-    if categoria == "sandwiches".lower():
-        print(al_sand)
+# Ask the user for input
+user_choice = input(
+    "¿De qué sandwich quieres comprobar los alérgenos? ")
 
-
-main()
+if user_choice in alergenos_sand:
+    print(f"Los alérgenos para {user_choice} son: {
+          ', '.join(alergenos_sand[user_choice])}.")
+else:
+    print("Sandwich no disponible")
