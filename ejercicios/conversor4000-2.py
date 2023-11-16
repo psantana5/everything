@@ -1,4 +1,3 @@
-# Crear el diccionario de conversiones
 conversiones = {
     'longitudes': {
         'kilómetros': {'millas': 0.621371, 'metros': 1000, 'yardas': 1094},
@@ -19,16 +18,17 @@ conversiones = {
     }
 }
 
-tipo_unidad = input(
-    "ENtra el tipo de unidad (longitudes, volúmenes, masas): ").lower()
-unidad_origen = input(f"Entra la unidad de origen ({
-                      ', '.join(conversiones[tipo_unidad].keys())}): ").lower()
-unidad_destino = input(f"Entra la unidad de destino ({', '.join(
-    conversiones[tipo_unidad][unidad_origen].keys())}): ").lower()
+while True:
+    tipo_unidad = input(
+        "Entra el tipo de unidad (longitudes, volúmenes, masas): ").lower()
+    unidad_origen = input(f"Entra la unidad de origen ({
+        ', '.join(conversiones[tipo_unidad].keys())}): ").lower()
+    unidad_destino = input(f"Entra la unidad de destino ({', '.join(
+        conversiones[tipo_unidad][unidad_origen].keys())}): ").lower()
 
-if tipo_unidad in conversiones and unidad_origen in conversiones[tipo_unidad] and unidad_destino in conversiones[tipo_unidad][unidad_origen]:
-    factor_conversion = conversiones[tipo_unidad][unidad_origen][unidad_destino]
-    print(f"El factor de conversión de {unidad_origen} a {
-          unidad_destino} es: {factor_conversion}")
-else:
-    print("Las unidades  no son válidas.")
+    if tipo_unidad in conversiones and unidad_origen in conversiones[tipo_unidad] and unidad_destino in conversiones[tipo_unidad][unidad_origen]:
+        factor_conversion = conversiones[tipo_unidad][unidad_origen][unidad_destino]
+        print(f"El factor de conversión de {unidad_origen} a {
+            unidad_destino} es: {factor_conversion}")
+    else:
+        print("Las unidades entradas no son válidas.")
