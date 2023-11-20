@@ -57,7 +57,6 @@ def menu():
             menu()
         except ValueError:
             print("Valor no aceptado, introduce sólo un número")
-            menu()
 
 
 menu()
