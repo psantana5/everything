@@ -63,13 +63,13 @@ try:
 
             if len(posicion) == 2:
                 if colocarFicha(tablero, posicion, "X" if jugador_actual == jugador_actual else "O"):
-                    print(f"Ficha colocada por {
-                          jugador_actual} en la posición {posicion}")
+                    print(
+                        f"Ficha colocada por {jugador_actual} en la posición {posicion}")
                     # Imprimir el tablero después de colocar la ficha
                     imprimirTablero(tablero)
                 else:
-                    print(f"La posición {
-                          posicion} ya está ocupada o es inválida, intenta de nuevo.")
+                    print(
+                        f"La posición {posicion} ya está ocupada o es inválida, intenta de nuevo.")
             else:
                 print(
                     "Por favor, ingresa dos valores numéricos separados por un espacio.")
